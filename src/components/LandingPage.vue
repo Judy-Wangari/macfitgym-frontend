@@ -38,8 +38,9 @@
                     <v-img src="news1.jpg" cover></v-img>
                     <v-card-title>Stay Hydrated, Stay Active</v-card-title>
                     <v-card-text>Fuel your fitness journey with the Quokka water bottle — designed for 
-            on-the-go hydration. Whether you're at yoga, jumping rope, or hitting 
-            the gym, keep your water fresh with ice and lemon all session long.</v-card-text>
+                                on-the-go hydration. Whether you're at yoga, jumping rope, or hitting 
+                                the gym, keep your water fresh with ice and lemon all session long.
+                    </v-card-text>
                     <v-btn color="#3A4B68">READ MORE</v-btn>
                 </v-card>
             </v-col>
