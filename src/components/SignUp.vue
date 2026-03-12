@@ -28,7 +28,7 @@
         //create user object 
 
         const userDetails= {
-            name: firstName.value + lastName.value,
+            name: firstName.value + ' ' +lastName.value,
             email: email.value,
             phone: phoneNumber.value,
             dob: dob.value,
@@ -54,12 +54,12 @@
                 <v-form>
                 <v-row>
                         <v-col md="12">
-                           <v-img src="macfit-logo3.png" width="100" class="mx-auto"></v-img>
+                           <v-img src="macfit-logo-5.png" width="100" class="mx-auto"></v-img>
                         </v-col>
                 </v-row>
                     <v-row>
                         <v-col>
-                            <div class="text-display-small font-weight-medium"style="font-family: Verdana, sans-serif;">Sign up to MacFit Gym</div>
+                            <div class="text-display-small font-weight-medium"style="font-family: Verdana, sans-serif; color: #0097A7;">Sign up to MacFit Gym</div>
                         </v-col>
                     </v-row>
                         <v-row>
@@ -157,12 +157,12 @@
                         </v-row>
                         <v-row>
                             <v-col md="12">
-                              <v-btn color="#084A4A"variant="elevated" width="300"@click='signUp'>Sign Up</v-btn>
+                              <v-btn color="#0097A7"  variant="elevated" width="300"@click='signUp'>Sign Up</v-btn>
                             </v-col>
                         </v-row>
                         <v-row>
                             <v-col md="12">
-                                <div style="color: #084A4A; font-family: Verdana, sans-serif;"> Already have an account? 
+                                <div style="color: #0097A7; font-family: Verdana, sans-serif;"> Already have an account? 
                                    <router-link to="/login"> Login</router-link>
                                 </div>
                             </v-col>
