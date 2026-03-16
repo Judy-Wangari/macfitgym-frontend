@@ -3,7 +3,7 @@ import {useRouter} from "vue-router";
 
 const router = useRouter();
 
-const isLoggedIn = localStorage.getItem("isLoggedIn")
+const isLoggedIn = localStorage.getItem("authToken")
 const isAdmin = true
 function logout(){
     localStorage.removeItem( "isLoggedIn")
