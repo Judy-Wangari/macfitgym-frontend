@@ -1,8 +1,11 @@
 <script setup>
     import { ref } from 'vue'
-    import {useRouter} from "vue-router"
+    import {useRouter} from "vue-router";
+    import {useAuth} from '../services/auth'
 
     const router = useRouter();
+    const { login, loading, error } = useAuth()
+
 
     const rules = {
         required: value => !!value || 'Required.',
@@ -13,19 +16,30 @@
     const show1 = ref(false)
     const show2 = ref(true)
     const password = ref(null)
-    const Username = ref(null)
+    const username = ref(null)
 
-    function login(){
-        const userDetails = JSON.parse(localStorage.getItem('userDetails'))
-        if (Username.value == userDetails.email && password.value == userDetails.password){
-            //proceed to Homepage
-            router.push('/homepage')
-            localStorage.setItem("isLoggedIn", true)
-            localStorage.setItem("userName", userDetails.name) 
-        }else{
-            console.log('Invalid credentials. Try again')
-        }
+    async function handleLogin() {
+  
+    if (!username.value || !password.value) {
+        console.error('Email and password are required')
+        return
     }
+    
+    try {
+        await login({
+        email: username.value,
+        password: password.value
+        })
+    
+        // Redirect after successful login
+        router.push('/homepage').then(() => {
+            router.go(0); // Reloads the current route
+        });
+    } catch (err) {
+        // Error is already handled by the auth service
+        console.error('Login failed', err)
+    }
+}
 </script>
 <template>
     <v-container  width="50%"; class="text-center mt-16">
@@ -47,7 +61,7 @@
                                 <div class="text-title-large font-weight-medium text-right" style="font-family: Verdana, sans-serif; color: #0097A7;">Username</div>
                             </v-col>
                             <v-col md="6">
-                                <v-text-field variant="outlined" v-model="Username"></v-text-field>
+                                <v-text-field variant="outlined" v-model="username"></v-text-field>
                             </v-col>
                         </v-row>
                          <v-row>
@@ -66,7 +80,7 @@
                         </v-row>
                         <v-row>
                             <v-col md="12">
-                              <v-btn color="#0097A7"variant="elevated" width="250" @click="login">Login</v-btn>
+                              <v-btn color="primary"variant="elevated" width="250" @click="handleLogin">Login</v-btn>
                             </v-col>
                         </v-row>
                         <v-row>

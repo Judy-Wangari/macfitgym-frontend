@@ -1,17 +1,15 @@
 <script setup>
 import {useRouter} from "vue-router";
+import {useAuth} from '../services/auth'
 
-const router = useRouter();
+ const { logout } = useAuth()
+ const router = useRouter();
 
 const isLoggedIn = localStorage.getItem("authToken")
 const isAdmin = true
-function logout(){
-    localStorage.removeItem( "isLoggedIn")
-    router.push('/')
-}
 </script>
 <template>
-    <v-app-bar color="#0097A7">
+    <v-app-bar color="primary">
         <v-app-bar-title>
             <router-link to="/">
               <v-img src="macfit-logo2.png" width="100" height="80" ></v-img> 
@@ -26,10 +24,10 @@ function logout(){
             <v-menu activator="parent" >
                 <v-list >
                     <v-list-item>
-                        <v-btn color="black" to="/profile">Profile</v-btn>                        
+                        <v-btn color="primary" to="/profile">Profile</v-btn>                        
                     </v-list-item>
                     <v-list-item>
-                        <v-btn color="black" @click="logout()">Logout</v-btn>                        
+                        <v-btn color="primary" @click="()=>{logout (); router.push('/')}">Logout</v-btn>                        
                     </v-list-item>
                 </v-list>
             </v-menu>
