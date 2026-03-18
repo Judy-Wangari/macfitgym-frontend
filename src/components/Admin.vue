@@ -75,6 +75,8 @@ async function addUser(){
 
 //roles
 const roles = ref(null)
+const roleName =  ref(null)
+const description = ref(null)
 
 //equipment
 const equipment = ref(null)
@@ -251,16 +253,14 @@ onMounted(() => {
                                         <thead>
                                             <tr>
                                                 <th class="text-left"> Name </th>
-                                                <th class="text-left"> Abilities </th>
-                                                <th class="text-left"> No of Users </th>
+                                                <th class="text-left"> Description </th>
                                                 <th class="text-center" colspan="3"> Action </th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr v-for="item in roles" :key="item.id" >
                                                 <td>{{ item.name }}</td>
-                                                <td>{{ item.abilities }}</td>
-                                                <td>{{ item.noOfUsers }}</td>
+                                                <td>{{ item.description }}</td>
                                                 <td v-if="item.deleted_at == null">
                                                     <v-btn color="primary" size="small" @click="editRole(item)"><v-icon icon="mdi-pencil" ></v-icon> Edit User</v-btn>
                                                 </td>
@@ -483,6 +483,35 @@ onMounted(() => {
                             <v-spacer></v-spacer>
                             <v-btn text="Close" variant="plain" @click="close()" ></v-btn>
                             <v-btn color="primary"  text="Save" variant="tonal" @click="addEquipment()" ></v-btn>
+                        </v-card-actions>
+                    </v-card>
+                </v-form>
+            </v-dialog>
+             <!-- Add Role Dialog -->
+            <v-dialog v-model="showAddRoleDialog" max-width="600">
+                <v-form @submit.prevent >
+                    <v-card>
+                        <v-card-title class="pa-6">
+                        <v-row>
+                                Add Role
+                                <v-spacer></v-spacer>
+                                <v-btn class="ma-2" color="blue-darken-2" icon="mdi-close" @click="close();"></v-btn>
+                            </v-row>
+                        </v-card-title>
+                        <v-card-text>
+                            <v-row>
+                                <v-col md="6">
+                                    <v-text-field label="Name" v-model="roleName" required :rules="[rules.required]"></v-text-field>
+                                </v-col>
+                                <v-col md="6">
+                                    <v-text-field label="Description" v-model="description" required :rules="[rules.required]"></v-text-field>
+                                </v-col>
+                            </v-row>
+                        </v-card-text>
+                        <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn text="Close" variant="plain" @click="close()" ></v-btn>
+                            <v-btn color="primary"  text="Save" variant="tonal" @click="addRole()" ></v-btn>
                         </v-card-actions>
                     </v-card>
                 </v-form>
