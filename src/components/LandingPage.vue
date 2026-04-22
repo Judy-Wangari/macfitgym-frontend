@@ -100,12 +100,12 @@
     <!--Contact Us-->
     <v-container max-width="100%" style="background-color: teal; border: 1px solid black ;" >
         <v-row class="text-center" style="color: white;" >
-            <div  class="text-title-large font-weight-bold  mb-2 ">Get in Touch</div>
-            <div  class="text-title-large font-weight-bold  mb-2">0712 345 678 | macfitgym@gmail.com</div>
-            <div  class="text-title-large font-weight-bold  mb-2">Opening Hours</div>
-            <div  class="text-title-large font-weight-bold  mb-2">Mon-Fri: 5.00am - 9.00pm | Sat: 5.30am - 6pm | Sun: 8.00am - 2.00pm</div>
-            <div  class="text-title-large font-weight-bold  mb-2">MacFit Gym, 3rd Floor Nairobi Mall, Nairobi Road</div>
-            <div  class="text-title-large font-weight-bold  mb-2">&copy; 2026 MacFit Gym. Design by Daniellah Designs</div>
+            <div  class="text-title-large font-weight-light   ">Get in Touch</div>
+            <div  class="text-title-large font-weight-light  ">0712 345 678 | macfitgym@gmail.com</div>
+            <div  class="text-title-large font-weight-light  ">Opening Hours</div>
+            <div  class="text-title-large font-weight-light  ">Mon-Fri: 5.00am - 9.00pm | Sat: 5.30am - 6pm | Sun: 8.00am - 2.00pm</div>
+            <div  class="text-title-large font-weight-light  ">MacFit Gym, 3rd Floor Nairobi Mall, Nairobi Road</div>
+            <div  class="text-title-large font-weight-light  ">&copy; 2026 MacFit Gym. Design by Daniellah Designs</div>
         </v-row>
     </v-container>
     
